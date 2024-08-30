@@ -1,8 +1,8 @@
 [package]
-name = "."
+name = "Mystem"
 
 [dependencies]
-Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/dwallet-framework", rev = "framework/testnet" }
-
+MoveStdlib = { git = "https://github.com/gonative-cc/dwallet-network", subdir = "crates/sui-framework/packages/move-stdlib", rev = "develop" }
+dWallet = { git = "https://github.com/gonative-cc/dwallet-network", subdir = "crates/sui-framework/packages/dwallet-framework", rev = "develop" }
 [addresses]
-. = "0x0"
+mystem = "0x2"
