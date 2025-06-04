@@ -1,29 +1,20 @@
-module mystem::main {
-    use dwallet::object::{Self, UID};
-    use dwallet::tx_context::TxContext;
-    struct Car has key, store{
-        id: UID
-    }
+module moon::add;
 
-    struct Factory has key{
-        id: UID, 
-        simple_car: Car
-    }
+public fun add(x: u64) : u32 {
+    let mut b;
+    if (x & 1 == 0) {
+	b = 1;
+    } else {
+	b = 2;
+    };
 
-    public fun create_car(ctx: &mut TxContext): Car {
-        Car {
-            id : object::new(ctx)
-        }
-    }
+    if(x & 2 == 0) {
+	b = 3;
+    };
+    b
+}
 
-    public fun create_factory(car: Car, ctx: &mut TxContext): Factory {
-        Factory {
-            id: object::new(ctx), 
-            simple_car: car
-        }
-    }
-
-    public fun car_number(car: &Car): u64 {
-        1000
-    }
+#[test]
+fun test_add() {
+    assert!(add(1) == 3);
 }
